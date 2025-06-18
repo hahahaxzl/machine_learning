@@ -1,81 +1,74 @@
-# 机器学习算法工程师代码资料汇总
+# Machine Learning Algorithm Engineer Code Collection
 
-## 一、项目简介
-本仓库是**机器学习算法工程师学习与实践资料的集合**，围绕多种经典机器学习算法，整理了对应的代码实现、原理解析及实践案例，覆盖从基础算法到集成学习的完整流程，助力学习者深入理解算法逻辑，快速上手实操。
+## 一、Project Introduction
+This repository is a **comprehensive collection of learning materials and practical resources for machine learning algorithm engineers**. It covers a wide range of classic machine learning algorithms, including their code implementations, theoretical explanations, and practical case studies. The content spans from fundamental algorithms to advanced ensemble learning techniques, aiming to help learners deeply understand algorithmic logic and quickly apply them in real-world scenarios.
 
-## 二、内容结构
-### （一）算法模块分类
-仓库按算法类型划分文件夹，每个文件夹聚焦一类算法，包含**代码实现、原理说明文档、测试数据**（部分含），具体如下：
-| 文件夹名称       | 算法类型                 | 核心内容简介                     |
-|------------------|--------------------------|----------------------------------|
-| 02线性回归       | 监督学习-回归算法        | 基于线性假设建模，含单/多元线性回归实现，覆盖损失函数推导、梯度下降优化等 |
-| 03逻辑回归       | 监督学习-分类算法        | 解决二分类/多分类问题，讲解Sigmoid函数、对数损失，含正则化（L1/L2）实践 |
-| 04决策树         | 监督学习-树模型          | 涵盖ID3、C4.5、CART算法，解析特征选择（信息增益、GINI系数）、树剪枝策略 |
-| 05朴素贝叶斯     | 监督学习-概率分类        | 基于贝叶斯定理+特征条件独立假设，含文本分类（词袋模型）等场景实践       |
-| 06支持向量机     | 监督学习-分类/回归       | 讲解最大间隔分类、核函数（线性、RBF等），含软间隔、多分类实现          |
-| 07聚类           | 无监督学习              | 包含K-Means、层次聚类、DBSCAN等算法，解析聚类评估指标与应用场景        |
-| 08主成分分析     | 无监督学习-降维         | 实现PCA算法，讲解方差最大化、特征重构，含高维数据可视化、预处理实践     |
-| 09集成学习       | 算法融合（提升/融合）    | 覆盖Bagging（随机森林）、Boosting（AdaBoost、GBDT）、Stacking等框架   |
-| 10案例           | 综合实践                | 结合多算法的完整项目，如信贷风控、图像分类（简化）、客户分群等案例，含流程化实现 |
+## 二、Content Structure
+### （一）Algorithm Module Classification
+The repository is organized into folders by algorithm type. Each folder focuses on a specific category of algorithms and includes **code implementations, theoretical documentation, and test datasets** (where applicable). The following table provides an overview:
 
-### （二）文件组织规范
-每个算法文件夹内，默认包含：
-- `README.md`：算法原理速览、代码运行说明、依赖环境
-- `*.ipynb`/`*.py`：代码实现（Jupyter Notebook/Python脚本，含注释）
-- `data/`（可选）：测试数据集（如CSV格式，小数据集直接内置） 
-- `docs/`（可选）：算法理论文档（公式推导、参考资料链接）
+| Folder Name       | Algorithm Type                | Core Content Summary                     |
+|-------------------|-------------------------------|------------------------------------------|
+| 02 Linear Regression | Supervised Learning - Regression | Linear model-based implementations covering single/multiple linear regression, loss function derivation, and gradient descent optimization. |
+| 03 Logistic Regression | Supervised Learning - Classification | Solves binary/multiclass classification problems with Sigmoid function, logarithmic loss, and regularization (L1/L2) practices. |
+| 04 Decision Trees    | Supervised Learning - Tree Models | Covers ID3, C4.5, CART algorithms with feature selection (information gain, GINI index) and pruning strategies. |
+| 05 Naive Bayes      | Supervised Learning - Probabilistic Classification | Based on Bayes' theorem and feature independence assumptions, includes text classification (bag-of-words model) examples. |
+| 06 Support Vector Machines | Supervised Learning - Classification/Regression | Explains maximum margin classification, kernel functions (linear, RBF, etc.), soft margin, and multiclass implementations. |
+| 07 Clustering        | Unsupervised Learning         | Includes K-Means, hierarchical clustering, DBSCAN, etc., with clustering evaluation metrics and application scenarios. |
+| 08 Principal Component Analysis | Unsupervised Learning - Dimensionality Reduction | Implements PCA algorithm with variance maximization, feature reconstruction, and high-dimensional data visualization. |
+| 09 Ensemble Learning | Algorithm Fusion (Boosting/Bagging) | Covers Bagging (Random Forest), Boosting (AdaBoost, GBDT), Stacking, and other frameworks. |
+| 10 Case Studies      | Comprehensive Practice        | Complete projects integrating multiple algorithms, such as credit risk assessment, simplified image classification, and customer segmentation. |
 
-## 三、使用指南
-### （一）环境依赖
-建议通过Anaconda管理环境，核心依赖：
-```bash
-# 基础包
-numpy>=1.21.0 pandas>=1.3.0 matplotlib>=3.4.0 
-# 机器学习库
-scikit-learn>=1.0.0 
-# （可选）深度学习/可视化
-tensorflow>=2.0.0 seaborn>=0.11.0 
-```
-快速安装：
-```bash
-conda create -n ml_env python=3.8 
-conda activate ml_env 
-pip install -r requirements.txt  # 若有该文件，需提前创建
-```
+### （二）File Organization Convention
+Each algorithm folder typically contains:
+- `README.md`: Quick overview of algorithm theory, code execution instructions, and environment dependencies.
+- `*.ipynb`/`*.py`: Code implementations (Jupyter Notebook/Python scripts with detailed comments).
+- `data/` (optional): Test datasets (e.g., CSV format; small datasets are directly included).
+- `docs/` (optional): Theoretical documentation (formula derivations, reference links).
 
-### （二）代码运行
-以**02线性回归**为例：
-1. 进入文件夹：`cd 02线性回归` 
-2. 运行Notebook：`jupyter notebook 线性回归实践.ipynb`  
-   或直接执行脚本：`python linear_regression.py` 
-3. 按照代码注释调整**数据集路径、超参数**（如学习率、迭代次数），观察输出结果（损失函数变化、模型预测可视化等）。
+## 三、Usage Guide
+### （一）Environment Setup
+We recommend managing the environment with Anaconda. Core dependencies include:# Basic Packages
+numpy>=1.21.0 pandas>=1.3.0 matplotlib>=3.4.0
+# Machine Learning Libraries
+scikit-learn>=1.0.0
+# (Optional) Deep Learning/Visualization
+tensorflow>=2.0.0 seaborn>=0.11.0To install quickly:conda create -n ml_env python=3.8
+conda activate ml_env
+pip install -r requirements.txt  # Create this file first if needed
+### （二）Running the Code
+Taking **02 Linear Regression** as an example:
+1. Navigate to the folder: `cd 02 Linear Regression`
+2. Run the notebook: `jupyter notebook Linear_Regression_Practice.ipynb`
+   or execute the script directly: `python linear_regression.py`
+3. Adjust **dataset paths and hyperparameters** (e.g., learning rate, iterations) according to code comments, then observe the output (loss function changes, model prediction visualizations).
 
-### （三）学习建议
-1. **循序渐进**：从`02线性回归`等基础算法开始，理解损失函数、优化器逻辑后，再深入树模型、集成学习。 
-2. **对比实践**：同一问题（如分类）尝试不同算法（逻辑回归 vs 决策树），对比指标（准确率、召回率、训练耗时）。 
+### （三）Learning Recommendations
+1. **Progressive Learning**: Start with foundational algorithms like `02 Linear Regression` to understand loss functions and optimizers before moving on to tree-based models and ensemble learning.
+2. **Comparative Practice**: Apply different algorithms (e.g., Logistic Regression vs. Decision Trees) to the same problem and compare metrics (accuracy, recall, training time).
+3. **Extended Reading**: Each algorithm folder's `docs/` section includes classic papers and recommended resources (e.g., Scikit-learn documentation, relevant chapters from *The Elements of Statistical Learning*) for deeper theoretical understanding.
 
+## 四、Contribution and Feedback
+### （一）Content Enhancement
+If you find opportunities to optimize algorithm implementations (e.g., adding new variants, more efficient vectorized code) or wish to contribute case studies, please:
+1. Fork the repository, make changes, and submit a Pull Request.
+2. Describe your suggestions in the Issue section (include algorithm name and improvement details).
 
-## 四、贡献与反馈
-### （一）内容补充
-若发现算法实现有优化空间（如新增算法变种、更高效的向量化代码），或想补充案例，欢迎：
-1. Fork仓库，修改后提交Pull Request 
-2. 直接在Issue区描述建议（含算法名称、改进点）
+### （二）Issue Reporting
+Submit an Issue for:
+- Code execution errors (include **full error message, environment details, and steps to reproduce**).
+- Unclear documentation (e.g., missing theoretical derivations, ambiguous parameter explanations).
+- Missing datasets/dependencies (specify the relevant folder).
 
-### （二）问题反馈
-遇到以下情况，可在Issue提交：
-- 代码运行报错（需附**完整报错信息、运行环境、操作步骤**） 
-- 文档描述不清（如原理推导缺失、参数说明模糊） 
-- 数据集/依赖缺失（可说明具体文件夹）
+## 五、Target Audience
+- Machine Learning Beginners: Quickly grasp algorithm implementation workflows through code and documentation.
+- Algorithm Engineers/Students: Supplement learning with comparative implementations and expand algorithm knowledge.
+- Educational Use: Instructors can use as classroom examples; students can practice after class.
 
-## 五、目标读者
-- 机器学习入门者：通过代码+文档，快速掌握算法落地流程 
-- 算法工程师/学生：作为实践补充，对比不同实现思路、拓展算法认知 
-- 教学场景：教师可用于课堂案例，学生可作为课后实操素材 
+## 六、Acknowledgments
+Special thanks to the following resources/communities:
+- Scikit-learn official documentation and example code.
+- Practical case inspirations from Kaggle, DataCamp, and similar platforms.
+- Algorithm implementations by open-source community contributors.
 
-## 六、致谢
-感谢以下资源/社区的支持：
-- Scikit-learn官方文档及示例代码 
-- Kaggle、DataCamp等平台的实践案例启发 
-- 开源社区贡献者的算法实现参考 
-
-希望本仓库能成为你机器学习学习路上的“工具箱”，持续更新中，欢迎Star✨关注！ 
+We hope this repository becomes a valuable "toolbox" on your machine learning journey. It is continuously updated—feel free to star ⭐ and follow for updates!
